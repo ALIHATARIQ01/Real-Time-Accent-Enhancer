@@ -108,5 +108,13 @@ A web-based application that processes audio input in real-time and enhances it 
 2. Wait while the app processes the audio and displays the original and enhanced text.
 3. View the results under the **Original** and **Enhanced** sections.
 
-## Folder Structure
+]
 
+## Demo Screenshot
+
+![Screenshot](https://via.placeholder.com/800x400.png?text=Real-Time+Accent+Enhancer)
+
+## Known Issues
+
+- The app requires a stable internet connection for the SpeechRecognition API to function.
+- Backend error handling needs enhancement for edge cases.

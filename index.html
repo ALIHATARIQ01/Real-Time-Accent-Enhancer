@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Accent Enhancer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        #start-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #start-btn:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 18px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+        }
+
+        #result p {
+            margin: 10px 0;
+        }
+
+        #result span {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Accent Enhancer</h1>
+    <button id="start-btn">Start Enhancer</button>
+    <div id="result">
+        <p>Original: <span id="original">N/A</span></p>
+        <p>Enhanced: <span id="enhanced">N/A</span></p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#start-btn").click(function() {
+                $("#original").text("Processing...");
+                $("#enhanced").text("Processing...");
+                $.ajax({
+                    url: "/process_audio",
+                    type: "POST",
+                    success: function(response) {
+                        $("#original").text(response.original || "Error");
+                        $("#enhanced").text(response.enhanced || "N/A");
+                    },
+                    error: function(err) {
+                        console.error("Error:", err);
+                        $("#original").text("Error: An unexpected error occurred.");
+                        $("#enhanced").text("N/A");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Accent Enhancer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Accent Enhancer</h1>
+    <button id="start-btn">Start Enhancer</button>
+    <div id="result">
+        <p>Original: <span id="original">N/A</span></p>
+        <p>Enhanced: <span id="enhanced">N/A</span></p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#start-btn").click(function() {
+                $("#original").text("Processing...");
+                $("#enhanced").text("Processing...");
+                $.ajax({
+                    url: "/process_audio",
+                    type: "POST",
+                    success: function(response) {
+                        $("#original").text(response.original || "Error");
+                        $("#enhanced").text(response.enhanced || "N/A");
+                    },
+                    error: function(err) {
+                        console.error("Error:", err);
+                        $("#original").text("Error: An unexpected error occurred.");
+                        $("#enhanced").text("N/A");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> -->

@@ -109,12 +109,3 @@ A web-based application that processes audio input in real-time and enhances it 
 3. View the results under the **Original** and **Enhanced** sections.
 
 ]
-
-## Demo Screenshot
-
-![Alt Text](screenshot.png)
-## Known Issues
-
-- The app requires a stable internet connection for the SpeechRecognition API to function.
-- Backend error handling needs enhancement for edge cases.
-
